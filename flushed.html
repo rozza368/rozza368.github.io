@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>😳</title>
+    <style>
+        #canvas, body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #canvas:active {
+            cursor: default;
+        }
+
+        #canvas {
+            border: 1px solid black;
+            cursor: none;
+        }
+
+        * {
+            font-family: sans-serif;
+        }
+
+        p {
+            font-size: 24px;
+            position: absolute;
+        }
+
+        .options {
+            display: flex;
+        }
+        .options * {
+            margin-right: 1em;
+        }
+
+        label {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="options">
+        <button id="reset">Reset canvas</button>
+        <h2>Left click anywhere to show cursor</h2>
+        <input type="checkbox" id="randomRotate" name="check" value="1"><label for="randomRotate">Randomise orientation</label>
+        <input type="checkbox" id="randomSize"><label for="randomSize">Randomise size</label>
+    </div>
+    <div class="canvas" id="canvas"></div>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const rotateCheck = document.getElementById("randomRotate");
+        const sizeCheck = document.getElementById("randomSize");
+        let dark = false;
+        function makeFlush(event) {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            console.log("Mouse moved: X="+mouseX+" Y="+mouseY);
+            face = document.createElement("p");
+            face.innerHTML = "😳";
+            addStyle = "top: "+mouseY+"; left: "+mouseX+";";
+            if (rotateCheck.checked) {
+                rotate = Math.floor(Math.random()*360);
+                addStyle += " transform: rotate("+rotate+"deg);";
+            }
+            if (sizeCheck.checked) {
+                size = Math.floor(Math.random()*26+10);
+                addStyle += " font-size: "+size+";";
+            }
+            face.style = addStyle;
+            canvas.appendChild(face);
+        }
+        function reset() {
+            canvas.innerHTML = "";
+            console.log("cleared");
+        }
+
+        canvas.addEventListener("mousemove", makeFlush);
+        document.getElementById("reset").addEventListener("click", reset);
+        console.log("ready");
+    </script>
+</body>
+</html>
