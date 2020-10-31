@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boi Bot Documentation</title>
+    <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+    <h2>Boi Bot | Documentation</h2>
+    <a href="../index.html">Home</a>
+    <h3>This is a work in progress.</h3>
+    <ul>
+        <li><a href="#tools">Tools</a></li>
+        <ul>
+            <li><a href="#userdata">User Data</a></li>
+        </ul>
+    </ul>
+
+    <h3 id="tools">Tools</h3>
+    <h4 id="userdata">User Data</h4>
+    <p>
+        The user data module is intended to make the manipulation of user data safe and easy. It
+        contains both low- and high-level functions to ensure control and readability within the
+        module itself and its use in other modules.
+    </p>
+    <h5>load_user_data()</h5>
+    <p>
+        Loads the JSON user data file into cls.data. If the file does not exist, it will be set to
+        an empty dictionary.
+    </p>
+
+    <h5>write_user_data()</h5>
+    <p>
+        Will write the contents of cls.data to the data file. If there is no data to write, no
+        information will be written and no file will be created if one does not exist.
+    </p>
+
+    <h5>init_user(usr)</h5>
+    <p>
+        Ensures all necessary user data is included in the data file. This function is deprecated
+        and should not be used if possible.
+    </p>
+
+    <h5>get_value(usr, attr)</h5>
+    <p>
+        Lower level function that returns specific user data.
+    </p>
+
+    <h5>get_credits(usr)</h5>
+    <p>
+        Returns the value of the specified user's credits field. Uses get_value.
+    </p>
+
+    <h5>get_xp(usr)</h5>
+    <p>
+        Returns the value of the specified user's XP field. Uses get_value. 
+    </p>
+
+    <h5>add(attr, usr, amt)</h5>
+    <p>
+        Changes a user's field by adding amt. Will set the field to amt if it does not exist.
+    </p>
+
+    <h5>add_exp(usr, amt)</h5>
+    <p>
+        Adds XP to the specified user. Uses add().
+    </p>
+
+    <h5>add_credits(usr, amt)</h5>
+
+    <h5>set_cooldown(usr, what)</h5>
+
+    <h5>reset_cooldowns()</h5>
+
+    <h5>get_inventory(usr)</h5>
+
+    <h5>modify_inv(usr, item_id, action, amt)</h5>
+
+    <h5>inventory_add_item(usr, item_id, amt)</h5>
+
+    <h5>inventory_remove_item(usr, item_id, amt)</h5>
+    
+</body>
+</html>
